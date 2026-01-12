@@ -1,18 +1,116 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Protected</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghosty Image to URL</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color: #00ffd5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 10px;
+  text-align: center;
+}
+.container {
+  background: rgba(0,0,0,0.75);
+  padding: 20px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 0 30px #00ffd533;
+}
+h1 {
+  margin-bottom: 15px;
+}
+input[type="file"] {
+  margin-top: 15px;
+  width: 100%;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid #00ffd5;
+  background: #000;
+  color: #00ffd5;
+}
+button {
+  margin-top: 15px;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #00ffd5;
+  color: #000;
+  transition: 0.3s;
+}
+button:hover {
+  background: #00c9aa;
+}
+textarea {
+  margin-top: 15px;
+  width: 100%;
+  height: 120px;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 12px;
+  background: #000;
+  color: #00ffd5;
+  border: 1px solid #00ffd5;
+  resize: none;
+}
+img {
+  margin-top: 15px;
+  max-width: 100%;
+  border-radius: 10px;
+  border: 1px solid #00ffd5;
+}
+</style>
 </head>
 <body>
+<div class="container">
+  <h1>Ghosty Image to URL</h1>
+  <input type="file" id="imageInput" accept="image/*">
+  <button onclick="generateURL()">Generate URL</button>
+  <textarea id="imageURL" placeholder="Your image URL will appear here" readonly></textarea>
+  <img id="preview" src="" alt="">
+  <button onclick="copyURL()">Copy URL</button>
+</div>
+
 <script>
-(function(){
-    var d = "PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+CjxtZXRhIGNoYXJzZXQ9IlVURi04Ij4KPG1ldGEgbmFtZT0idmlld3BvcnQiIGNvbnRlbnQ9IndpZHRoPWRldmljZS13aWR0aCwgaW5pdGlhbC1zY2FsZT0xLjAiPgo8dGl0bGU+R2hvc3R5IEFJIEltYWdlIE1ha2VyPC90aXRsZT4KCjxsaW5rIGhyZWY9Imh0dHBzOi8vZm9udHMuZ29vZ2xlYXBpcy5jb20vY3NzMj9mYW1pbHk9UG9wcGluczp3Z2h0QDMwMDs0MDA7NjAwJmRpc3BsYXk9c3dhcCIgcmVsPSJzdHlsZXNoZWV0Ij4KCjxzdHlsZT4KYm9keSB7CiAgbWFyZ2luOiAwOwogIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7CiAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDEzNWRlZywjMGYyMDI3LCMyMDNhNDMsIzJjNTM2NCk7CiAgbWluLWhlaWdodDogMTAwdmg7CiAgZGlzcGxheTogZmxleDsKICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjsKICBhbGlnbi1pdGVtczogY2VudGVyOwogIGNvbG9yOiAjZmZmOwogIHBhZGRpbmc6IDEwcHg7Cn0KLmNvbnRhaW5lciB7CiAgYmFja2dyb3VuZDogcmdiYSgwLDAsMCwwLjc1KTsKICBwYWRkaW5nOiAyMHB4OwogIGJvcmRlci1yYWRpdXM6IDE1cHg7CiAgd2lkdGg6IDEwMCU7CiAgbWF4LXdpZHRoOiA1MDBweDsKICBib3gtc2hhZG93OiAwIDAgMzBweCAjMDBmZmQ1MzM7CiAgdGV4dC1hbGlnbjogY2VudGVyOwp9CmgxIHsKICBtYXJnaW4tYm90dG9tOiAxMHB4OwogIGZvbnQtc2l6ZTogMjJweDsKfQp0ZXh0YXJlYSB7CiAgd2lkdGg6IDEwMCU7CiAgaGVpZ2h0OiAxMjBweDsKICBtYXJnaW4tdG9wOiAxNXB4OwogIGJhY2tncm91bmQ6ICMwMDA7CiAgY29sb3I6ICMwMGZmZDU7CiAgYm9yZGVyOiAxcHggc29saWQgIzAwZmZkNTsKICBib3JkZXItcmFkaXVzOiAxMHB4OwogIHBhZGRpbmc6IDEycHg7CiAgZm9udC1zaXplOiAxNHB4OwogIHJlc2l6ZTogbm9uZTsKfQpidXR0b24gewogIHdpZHRoOiAxMDAlOwogIG1hcmdpbi10b3A6IDE1cHg7CiAgcGFkZGluZzogMTJweDsKICBiYWNrZ3JvdW5kOiAjMDBmZmQ1OwogIGJvcmRlcjogbm9uZTsKICBib3JkZXItcmFkaXVzOiAxMHB4OwogIGZvbnQtc2l6ZTogMTZweDsKICBmb250LXdlaWdodDogNjAwOwogIGN1cnNvcjogcG9pbnRlcjsKfQpidXR0b246aG92ZXIgewogIGJhY2tncm91bmQ6ICMwMGM5YWE7Cn0KaW1nIHsKICBtYXJnaW4tdG9wOiAxNXB4OwogIHdpZHRoOiAxMDAlOwogIGJvcmRlci1yYWRpdXM6IDEwcHg7CiAgYm9yZGVyOiAxcHggc29saWQgIzAwZmZkNTsKfQo8L3N0eWxlPgo8L2hlYWQ+Cgo8Ym9keT4KPGRpdiBjbGFzcz0iY29udGFpbmVyIj4KICA8aDE+R2hvc3R5IEFJIEltYWdlIE1ha2VyPC9oMT4KICA8cD5UeXBlIGEgZGVzY3JpcHRpb24gYW5kIGdlbmVyYXRlIGEgcmVhbCBBSSBpbWFnZS48L3A+CgogIDwhLS0gVXNlciBQcm9tcHQgSW5wdXQgLS0+CiAgPHRleHRhcmVhIGlkPSJwcm9tcHQiIHBsYWNlaG9sZGVyPSJFeGFtcGxlOiBjeWJlciBnaG9zdCBoYWNrZXIsIG5lb24gZ3JlZW4sIGRhcmsgY2l0eSI+PC90ZXh0YXJlYT4KCiAgPCEtLSBHZW5lcmF0ZSBJbWFnZSBCdXR0b24gLS0+CiAgPGJ1dHRvbiBvbmNsaWNrPSJnZW5lcmF0ZUltYWdlKCkiPkdlbmVyYXRlIEltYWdlPC9idXR0b24+CgogIDwhLS0gSW1hZ2UgQ29udGFpbmVyIC0tPgogIDxkaXYgaWQ9ImltYWdlQ29udGFpbmVyIj48L2Rpdj4KPC9kaXY+Cgo8c2NyaXB0PgoKY29uc3QgT1BFTkFJX0FQSV9LRVkgPSAic2stcHJvai0xa3M1Mlc2Q3liYjl3WjhSXzRBU184a1k2bmF3SDZkbmM2Q2ZLZlQ4WXlTb3J4Wm5MRGVRZmRhZ2R3VUtuc0pLdkxqUWFFaGlIR1QzQmxia0ZKQjdheGNZd1lubHgtdTlOellWV08yWV9UWE5OTTdrNVJKc184SGFTdGJuU3FrM1FQVkZxRmhhSVF2SGVqU0VqUkRqc3hLYWw5UUEiOyAKCmFzeW5jIGZ1bmN0aW9uIGdlbmVyYXRlSW1hZ2UoKSB7CiAgY29uc3QgcHJvbXB0ID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoInByb21wdCIpLnZhbHVlLnRyaW0oKTsKICBpZiAoIXByb21wdCkgcmV0dXJuIGFsZXJ0KCJQbGVhc2UgZW50ZXIgYSBwcm9tcHQiKTsKCiAgY29uc3QgY29udGFpbmVyID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoImltYWdlQ29udGFpbmVyIik7CiAgY29udGFpbmVyLmlubmVySFRNTCA9ICI8cD5HZW5lcmF0aW5nIGltYWdlLi4uPC9wPiI7CgogIHRyeSB7CiAgICBjb25zdCByZXNwb25zZSA9IGF3YWl0IGZldGNoKCJodHRwczovL2FwaS5vcGVuYWkuY29tL3YxL2ltYWdlcy9nZW5lcmF0aW9ucyIsIHsKICAgICAgbWV0aG9kOiAiUE9TVCIsCiAgICAgIGhlYWRlcnM6IHsKICAgICAgICAiQ29udGVudC1UeXBlIjogImFwcGxpY2F0aW9uL2pzb24iLAogICAgICAgICJBdXRob3JpemF0aW9uIjogYEJlYXJlciAke09QRU5BSV9BUElfS0VZfWAKICAgICAgfSwKICAgICAgYm9keTogSlNPTi5zdHJpbmdpZnkoewogICAgICAgIG1vZGVsOiAiZGFsbC1lLTMiLAogICAgICAgIHByb21wdDogcHJvbXB0LAogICAgICAgIHNpemU6ICI1MTJ4NTEyIgogICAgICB9KQogICAgfSk7CgogICAgY29uc3QgZGF0YSA9IGF3YWl0IHJlc3BvbnNlLmpzb24oKTsKICAgIGlmIChkYXRhLmRhdGEgJiYgZGF0YS5kYXRhWzBdLnVybCkgewogICAgICBjb25zdCBpbWFnZVVybCA9IGRhdGEuZGF0YVswXS51cmw7CiAgICAgIGNvbnRhaW5lci5pbm5lckhUTUwgPSBgCiAgICAgICAgPGltZyBzcmM9IiR7aW1hZ2VVcmx9IiBhbHQ9IkFJIEltYWdlIj4KICAgICAgICA8YnV0dG9uIG9uY2xpY2s9ImRvd25sb2FkSW1hZ2UoJyR7aW1hZ2VVcmx9JykiPkRvd25sb2FkIEltYWdlPC9idXR0b24+CiAgICAgIGA7CiAgICB9IGVsc2UgewogICAgICBjb250YWluZXIuaW5uZXJIVE1MID0gIjxwPkZhaWxlZCB0byBnZW5lcmF0ZSBpbWFnZS48L3A+IjsKICAgICAgY29uc29sZS5lcnJvcihkYXRhKTsKICAgIH0KICB9IGNhdGNoIChlcnIpIHsKICAgIGNvbnRhaW5lci5pbm5lckhUTUwgPSAiPHA+RXJyb3IgZ2VuZXJhdGluZyBpbWFnZS48L3A+IjsKICAgIGNvbnNvbGUuZXJyb3IoZXJyKTsKICB9Cn0KCi8vIERvd25sb2FkIGltYWdlIGZ1bmN0aW9uCmZ1bmN0aW9uIGRvd25sb2FkSW1hZ2UodXJsKSB7CiAgY29uc3QgbGluayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoImEiKTsKICBsaW5rLmhyZWYgPSB1cmw7CiAgbGluay5kb3dubG9hZCA9ICJHaG9zdHlBSUltYWdlLnBuZyI7CiAgZG9jdW1lbnQuYm9keS5hcHBlbmRDaGlsZChsaW5rKTsKICBsaW5rLmNsaWNrKCk7CiAgZG9jdW1lbnQuYm9keS5yZW1vdmVDaGlsZChsaW5rKTsKfQo8L3NjcmlwdD4KPC9ib2R5Pgo8L2h0bWw+";
-    var h = decodeURIComponent(escape(atob(d)));
-    document.open();
-    document.write(h);
-    document.close();
-})();
+function generateURL() {
+  const file = document.getElementById('imageInput').files[0];
+  const preview = document.getElementById('preview');
+  const textarea = document.getElementById('imageURL');
+
+  if (!file) {
+    alert("Please select an image!");
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const base64URL = e.target.result;
+    textarea.value = base64URL;
+    preview.src = base64URL;
+  }
+  reader.readAsDataURL(file);
+}
+
+function copyURL() {
+  const textarea = document.getElementById('imageURL');
+  textarea.select();
+  textarea.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(textarea.value);
+  alert("Image URL copied to clipboard!");
+}
 </script>
 </body>
 </html>
