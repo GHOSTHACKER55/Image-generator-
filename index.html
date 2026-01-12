@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ghosty Image to URL</title>
+<title>Ghosty Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
 body {
@@ -11,106 +11,215 @@ body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
   color: #00ffd5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 10px;
+  padding: 20px;
   text-align: center;
 }
-.container {
-  background: rgba(0,0,0,0.75);
-  padding: 20px;
-  border-radius: 15px;
-  width: 100%;
-  max-width: 400px;
-  box-shadow: 0 0 30px #00ffd533;
-}
 h1 {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  font-size: 28px;
+  text-shadow: 0 0 10px #00ffd5;
 }
-input[type="file"] {
-  margin-top: 15px;
-  width: 100%;
-  padding: 8px;
-  border-radius: 10px;
-  border: 1px solid #00ffd5;
-  background: #000;
-  color: #00ffd5;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
 }
-button {
-  margin-top: 15px;
-  padding: 12px;
-  width: 100%;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: 600;
+.card {
+  background: rgba(0,0,0,0.7);
+  border: 2px solid #00ffd5;
+  border-radius: 12px;
+  padding: 10px;
   cursor: pointer;
-  background: #00ffd5;
-  color: #000;
   transition: 0.3s;
 }
-button:hover {
-  background: #00c9aa;
+.card:hover {
+  background: #00ffd5;
+  color: #000;
 }
-textarea {
-  margin-top: 15px;
+.card img {
   width: 100%;
-  height: 120px;
-  border-radius: 10px;
-  padding: 10px;
-  font-size: 12px;
-  background: #000;
-  color: #00ffd5;
+  border-radius: 8px;
+  margin-bottom: 8px;
   border: 1px solid #00ffd5;
-  resize: none;
 }
-img {
-  margin-top: 15px;
-  max-width: 100%;
-  border-radius: 10px;
-  border: 1px solid #00ffd5;
+.card-title {
+  font-size: 14px;
+  font-weight: 600;
+  word-break: break-word;
+}
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+  h1 {
+    font-size: 22px;
+  }
 }
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Ghosty Image to URL</h1>
-  <input type="file" id="imageInput" accept="image/*">
-  <button onclick="generateURL()">Generate URL</button>
-  <textarea id="imageURL" placeholder="Your image URL will appear here" readonly></textarea>
-  <img id="preview" src="" alt="">
-  <button onclick="copyURL()">Copy URL</button>
+
+<h1>👻 Ghosty Hub</h1>
+
+<div class="grid">
+  <!-- Slot 1 -->
+  <div class="card" onclick="openLink(1)">
+    <img src="placeholder.png" alt="Tool 1">
+    <div class="card-title">Tool 1</div>
+  </div>
+
+  <!-- Slot 2 -->
+  <div class="card" onclick="openLink(2)">
+    <img src="placeholder.png" alt="Tool 2">
+    <div class="card-title">Tool 2</div>
+  </div>
+
+  <!-- Slot 3 -->
+  <div class="card" onclick="openLink(3)">
+    <img src="placeholder.png" alt="Tool 3">
+    <div class="card-title">Tool 3</div>
+  </div>
+
+  <!-- Slot 4 -->
+  <div class="card" onclick="openLink(4)">
+    <img src="placeholder.png" alt="Tool 4">
+    <div class="card-title">Tool 4</div>
+  </div>
+
+  <!-- Slot 5 -->
+  <div class="card" onclick="openLink(5)">
+    <img src="placeholder.png" alt="Tool 5">
+    <div class="card-title">Tool 5</div>
+  </div>
+
+  <!-- Slot 6 -->
+  <div class="card" onclick="openLink(6)">
+    <img src="placeholder.png" alt="Tool 6">
+    <div class="card-title">Tool 6</div>
+  </div>
+
+  <!-- Slot 7 -->
+  <div class="card" onclick="openLink(7)">
+    <img src="placeholder.png" alt="Tool 7">
+    <div class="card-title">Tool 7</div>
+  </div>
+
+  <!-- Slot 8 -->
+  <div class="card" onclick="openLink(8)">
+    <img src="placeholder.png" alt="Tool 8">
+    <div class="card-title">Tool 8</div>
+  </div>
+
+  <!-- Slot 9 -->
+  <div class="card" onclick="openLink(9)">
+    <img src="placeholder.png" alt="Tool 9">
+    <div class="card-title">Tool 9</div>
+  </div>
+
+  <!-- Slot 10 -->
+  <div class="card" onclick="openLink(10)">
+    <img src="placeholder.png" alt="Tool 10">
+    <div class="card-title">Tool 10</div>
+  </div>
+
+  <!-- Slot 11 -->
+  <div class="card" onclick="openLink(11)">
+    <img src="placeholder.png" alt="Tool 11">
+    <div class="card-title">Tool 11</div>
+  </div>
+
+  <!-- Slot 12 -->
+  <div class="card" onclick="openLink(12)">
+    <img src="placeholder.png" alt="Tool 12">
+    <div class="card-title">Tool 12</div>
+  </div>
+
+  <!-- Slot 13 -->
+  <div class="card" onclick="openLink(13)">
+    <img src="placeholder.png" alt="Tool 13">
+    <div class="card-title">Tool 13</div>
+  </div>
+
+  <!-- Slot 14 -->
+  <div class="card" onclick="openLink(14)">
+    <img src="placeholder.png" alt="Tool 14">
+    <div class="card-title">Tool 14</div>
+  </div>
+
+  <!-- Slot 15 -->
+  <div class="card" onclick="openLink(15)">
+    <img src="placeholder.png" alt="Tool 15">
+    <div class="card-title">Tool 15</div>
+  </div>
+
+  <!-- Slot 16 -->
+  <div class="card" onclick="openLink(16)">
+    <img src="placeholder.png" alt="Tool 16">
+    <div class="card-title">Tool 16</div>
+  </div>
+
+  <!-- Slot 17 -->
+  <div class="card" onclick="openLink(17)">
+    <img src="placeholder.png" alt="Tool 17">
+    <div class="card-title">Tool 17</div>
+  </div>
+
+  <!-- Slot 18 -->
+  <div class="card" onclick="openLink(18)">
+    <img src="placeholder.png" alt="Tool 18">
+    <div class="card-title">Tool 18</div>
+  </div>
+
+  <!-- Slot 19 -->
+  <div class="card" onclick="openLink(19)">
+    <img src="placeholder.png" alt="Tool 19">
+    <div class="card-title">Tool 19</div>
+  </div>
+
+  <!-- Slot 20 -->
+  <div class="card" onclick="openLink(20)">
+    <img src="placeholder.png" alt="Tool 20">
+    <div class="card-title">Tool 20</div>
+  </div>
+
+  <!-- Slot 21 -->
+  <div class="card" onclick="openLink(21)">
+    <img src="placeholder.png" alt="Tool 21">
+    <div class="card-title">Tool 21</div>
+  </div>
+
+  <!-- Slot 22 -->
+  <div class="card" onclick="openLink(22)">
+    <img src="placeholder.png" alt="Tool 22">
+    <div class="card-title">Tool 22</div>
+  </div>
+
+  <!-- Slot 23 -->
+  <div class="card" onclick="openLink(23)">
+    <img src="placeholder.png" alt="Tool 23">
+    <div class="card-title">Tool 23</div>
+  </div>
+
+  <!-- Slot 24 -->
+  <div class="card" onclick="openLink(24)">
+    <img src="placeholder.png" alt="Tool 24">
+    <div class="card-title">Tool 24</div>
+  </div>
 </div>
 
 <script>
-function generateURL() {
-  const file = document.getElementById('imageInput').files[0];
-  const preview = document.getElementById('preview');
-  const textarea = document.getElementById('imageURL');
+// Placeholder links array
+const links = Array(25).fill("#"); // Index 1-24, fill with "#" now. Add your URLs later
 
-  if (!file) {
-    alert("Please select an image!");
-    return;
+function openLink(slot) {
+  const url = links[slot] || "#";
+  if(url !== "#") {
+    window.open(url, "_blank"); // Opens the link in a new tab
+  } else {
+    alert("Link not added yet for this tool!");
   }
-
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    const base64URL = e.target.result;
-    textarea.value = base64URL;
-    preview.src = base64URL;
-  }
-  reader.readAsDataURL(file);
-}
-
-function copyURL() {
-  const textarea = document.getElementById('imageURL');
-  textarea.select();
-  textarea.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(textarea.value);
-  alert("Image URL copied to clipboard!");
 }
 </script>
+
 </body>
 </html>
