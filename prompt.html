@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Ghosty AI Prompt Studio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
 body {
   margin: 0;
@@ -14,19 +17,29 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 }
-.box {
-  background: rgba(0,0,0,0.75);
-  padding: 25px;
+.container {
+  background: rgba(0,0,0,0.85);
+  padding: 20px;
   border-radius: 15px;
-  max-width: 700px;
-  width: 90%;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 0 30px #00ffd533;
   text-align: center;
-  box-shadow: 0 0 40px #00ffd544;
 }
 h2 {
-  text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+}
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #00ffd5;
+  background: #000;
+  color: #00ffd5;
+  margin-bottom: 15px;
+  font-size: 14px;
 }
 textarea {
   width: 100%;
@@ -38,38 +51,44 @@ textarea {
   padding: 15px;
   font-size: 14px;
   resize: none;
+  margin-bottom: 15px;
 }
 button {
-  margin-top: 15px;
-  padding: 10px 15px;
+  width: 100%;
+  padding: 12px;
   background: #00ffd5;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: 600;
+  font-size: 16px;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 button:hover {
   background: #00c9aa;
-}
-input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  border: 1px solid #00ffd5;
-  background: #000;
-  color: #00ffd5;
 }
 </style>
 </head>
 
 <body>
-<div class="box">
+<div class="container">
   <h2>Ghosty AI Prompt Generator</h2>
-  <p>Enter a simple idea and get a full professional AI image prompt.</p>
+  <p>Enter your idea and get a full professional AI image prompt.</p>
+
+  <!-- User input -->
   <input type="text" id="idea" placeholder="Example: ghost hacker logo">
+
+  <!-- Generate Prompt -->
   <button onclick="generatePrompt()">Generate Full Prompt</button>
-  <textarea id="fullPrompt" readonly></textarea>
+
+  <!-- Full prompt output -->
+  <textarea id="fullPrompt" readonly placeholder="Your AI-ready prompt will appear here..."></textarea>
+
+  <!-- Copy button -->
+  <button onclick="copyPrompt()">Copy Prompt</button>
+
+  <!-- Back button -->
+  <button onclick="back()">New Idea</button>
 </div>
 
 <script>
@@ -92,9 +111,26 @@ Soft cinematic lighting, dramatic highlights, centered subject, clean background
 
 Quality Enhancements:
 Masterpiece quality, trending on art platforms, no blur, no watermark, extremely detailed, premium quality
-`;
+  `;
 
   document.getElementById("fullPrompt").value = fullPrompt.trim();
+}
+
+// Copy prompt to clipboard
+function copyPrompt() {
+  const text = document.getElementById("fullPrompt").value;
+  if (!text) { alert("Generate prompt first"); return; }
+
+  navigator.clipboard.writeText(text).then(() => {
+    alert("Prompt copied successfully!");
+  }).catch(() => {
+    alert("Failed to copy prompt");
+  });
+}
+
+// Back to index page
+function back() {
+  window.location.href = "index.html";
 }
 </script>
 </body>
