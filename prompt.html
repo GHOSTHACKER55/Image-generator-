@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Ghosty AI Prompt Studio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghosty AI Prompt Studio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -13,11 +13,11 @@ body {
   font-family: 'Poppins', sans-serif;
   background: radial-gradient(circle,#020024,#090979,#00d4ff);
   min-height: 100vh;
-  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
+  color: #fff;
 }
 .container {
   background: rgba(0,0,0,0.85);
@@ -29,16 +29,17 @@ body {
   text-align: center;
 }
 h2 {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  font-size: 22px;
 }
 input {
   width: 100%;
   padding: 12px;
+  margin-bottom: 15px;
   border-radius: 8px;
   border: 1px solid #00ffd5;
   background: #000;
   color: #00ffd5;
-  margin-bottom: 15px;
   font-size: 14px;
 }
 textarea {
@@ -51,7 +52,7 @@ textarea {
   padding: 15px;
   font-size: 14px;
   resize: none;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 button {
   width: 100%;
@@ -73,21 +74,21 @@ button:hover {
 <body>
 <div class="container">
   <h2>Ghosty AI Prompt Generator</h2>
-  <p>Enter your idea and get a full professional AI image prompt.</p>
+  <p>Enter your idea and get a full professional AI prompt.</p>
 
-  <!-- User input -->
+  <!-- User Input -->
   <input type="text" id="idea" placeholder="Example: ghost hacker logo">
 
   <!-- Generate Prompt -->
   <button onclick="generatePrompt()">Generate Full Prompt</button>
 
-  <!-- Full prompt output -->
+  <!-- Full Prompt -->
   <textarea id="fullPrompt" readonly placeholder="Your AI-ready prompt will appear here..."></textarea>
 
-  <!-- Copy button -->
+  <!-- Copy Prompt -->
   <button onclick="copyPrompt()">Copy Prompt</button>
 
-  <!-- Back button -->
+  <!-- Back Button -->
   <button onclick="back()">New Idea</button>
 </div>
 
@@ -128,7 +129,7 @@ function copyPrompt() {
   });
 }
 
-// Back to index page
+// Back to Page 1
 function back() {
   window.location.href = "index.html";
 }
