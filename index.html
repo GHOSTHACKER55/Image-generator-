@@ -90,10 +90,31 @@ function generateImage() {
   const prompt = document.getElementById("prompt").value.trim();
   if (!prompt) { alert("Please enter a prompt"); return; }
 
-  const imgUrl = "https://image.pollinations.ai/prompt/" + encodeURIComponent(prompt) + "?width=512&height=512";
-  document.getElementById("imageContainer").innerHTML = `<img src="${imgUrl}" alt="AI Image">`;
+  // Use timestamp to avoid cached image
+  const timestamp = new Date().getTime();
+  const imgUrl = "https://image.pollinations.ai/prompt/" + encodeURIComponent(prompt) + "?width=512&height=512&t=" + timestamp;
+
+  const container = document.getElementById("imageContainer");
+  container.innerHTML = `
+    <img id="aiImage" src="${imgUrl}" alt="AI Image">
+    <button onclick="downloadImage()">Download Image</button>
+  `;
 }
 
+// Download generated image
+function downloadImage() {
+  const img = document.getElementById("aiImage");
+  if (!img) { alert("Generate an image first!"); return; }
+
+  const link = document.createElement("a");
+  link.href = img.src;
+  link.download = "GhostyAIImage.png";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+// Go to Prompt Page
 function goToPrompt() {
   window.location.href = "prompt.html";
 }
