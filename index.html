@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ghosty AI Image Maker</title>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -17,18 +17,20 @@ body {
   justify-content: center;
   align-items: center;
   color: #fff;
+  padding: 10px;
 }
 .container {
-  background: rgba(0,0,0,0.65);
-  padding: 30px;
-  width: 90%;
-  max-width: 500px;
+  background: rgba(0,0,0,0.75);
+  padding: 20px;
   border-radius: 15px;
+  width: 100%;
+  max-width: 500px;
   box-shadow: 0 0 30px #00ffd533;
   text-align: center;
 }
 h1 {
   margin-bottom: 10px;
+  font-size: 22px;
 }
 textarea {
   width: 100%;
@@ -40,10 +42,11 @@ textarea {
   border-radius: 10px;
   padding: 12px;
   font-size: 14px;
+  resize: none;
 }
 button {
   width: 100%;
-  margin-top: 20px;
+  margin-top: 15px;
   padding: 12px;
   background: #00ffd5;
   border: none;
@@ -67,37 +70,31 @@ img {
 <body>
 <div class="container">
   <h1>Ghosty AI Image Maker</h1>
-  <p>Enter a description and generate a real AI image.</p>
-  <textarea id="prompt" placeholder="Example: cyber ghost hacker logo, neon green, dark background"></textarea>
-  
+  <p>Type a description and generate a real AI image.</p>
+
+  <!-- Prompt Input -->
+  <textarea id="prompt" placeholder="Example: cyber ghost hacker, neon green, dark city"></textarea>
+
   <!-- Generate Image Button -->
   <button onclick="generateImage()">Generate Image</button>
 
   <!-- Image Container -->
   <div id="imageContainer"></div>
 
-  <!-- Get Prompt Button -->
-  <button onclick="goToPrompt()" style="margin-top:15px;">Get Prompt</button>
+  <!-- Go to Prompt Page -->
+  <button onclick="goToPrompt()">Get Prompt</button>
 </div>
 
 <script>
 function generateImage() {
   const prompt = document.getElementById("prompt").value.trim();
-  if (!prompt) { 
-    alert("Please enter a prompt"); 
-    return; 
-  }
+  if (!prompt) { alert("Please enter a prompt"); return; }
 
-  // Pollinations AI free image API
   const imgUrl = "https://image.pollinations.ai/prompt/" + encodeURIComponent(prompt) + "?width=512&height=512";
-
-  // Show image
   document.getElementById("imageContainer").innerHTML = `<img src="${imgUrl}" alt="AI Image">`;
 }
 
-// Go to Page 2 (prompt generator)
 function goToPrompt() {
-  // Use exact file name
   window.location.href = "prompt.html";
 }
 </script>
