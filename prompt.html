@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ghosty AI Prompt Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle,#020024,#090979,#00d4ff);
+  min-height: 100vh;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box {
+  background: rgba(0,0,0,0.75);
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 700px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 0 40px #00ffd544;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+textarea {
+  width: 100%;
+  height: 180px;
+  background: #000;
+  color: #00ffd5;
+  border: 1px solid #00ffd5;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 14px;
+  resize: none;
+}
+button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background: #00ffd5;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+button:hover {
+  background: #00c9aa;
+}
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #00ffd5;
+  background: #000;
+  color: #00ffd5;
+}
+</style>
+</head>
+
+<body>
+<div class="box">
+  <h2>Ghosty AI Prompt Generator</h2>
+  <p>Enter a simple idea and get a full professional AI image prompt.</p>
+  <input type="text" id="idea" placeholder="Example: ghost hacker logo">
+  <button onclick="generatePrompt()">Generate Full Prompt</button>
+  <textarea id="fullPrompt" readonly></textarea>
+</div>
+
+<script>
+function generatePrompt() {
+  const idea = document.getElementById("idea").value.trim();
+  if (!idea) { alert("Please enter an idea"); return; }
+
+  const fullPrompt = `
+A stunning, ultra-detailed digital artwork inspired by the idea:
+"${idea}"
+
+Style & Mood:
+Cinematic composition, visually pleasing, professional design, creative and modern atmosphere
+
+Visual Details:
+Ultra-high resolution, 4K quality, sharp focus, realistic textures, perfect lighting, vibrant colors
+
+Lighting & Camera:
+Soft cinematic lighting, dramatic highlights, centered subject, clean background, depth of field
+
+Quality Enhancements:
+Masterpiece quality, trending on art platforms, no blur, no watermark, extremely detailed, premium quality
+`;
+
+  document.getElementById("fullPrompt").value = fullPrompt.trim();
+}
+</script>
+</body>
+</html>
