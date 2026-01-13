@@ -3,272 +3,140 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ghosty Hub Toolkit</title>
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<title>Ghosty Hub – Toolkit</title>
+
 <style>
-    body {
-        margin: 0;
-        font-family: 'Share Tech Mono', monospace;
-        background-color: #0d0d0d;
-        color: #00ffcc;
-    }
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: radial-gradient(circle at top, #0f2027, #000);
+    color:#fff;
+}
 
-    h1 {
-        text-align: center;
-        padding: 20px;
-        color: #00ffcc;
-    }
+.header{
+    text-align:center;
+    padding:30px 15px;
+}
 
-    /* Horizontal scroll container */
-    .tool-row {
-        display: flex;
-        overflow-x: auto;
-        padding: 20px;
-        gap: 20px;
-    }
+.header h1{
+    font-size:36px;
+    letter-spacing:2px;
+    color:#00f7ff;
+    text-shadow:0 0 15px #00f7ff;
+}
 
-    /* Hide scrollbar for all browsers */
-    .tool-row::-webkit-scrollbar {
-        display: none;
-    }
-    .tool-row {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-    }
+.header p{
+    color:#aaa;
+    margin-top:5px;
+}
 
-    /* Tool card */
-    .card {
-        min-width: 200px;
-        background-color: #1a1a1a;
-        border: 2px solid #00ffcc;
-        border-radius: 12px;
-        text-align: center;
-        padding: 10px;
-        flex-shrink: 0;
-        transition: transform 0.2s;
-    }
+.container{
+    padding:20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(140px,1fr));
+    gap:18px;
+}
 
-    .card:hover {
-        transform: scale(1.05);
-    }
+.card{
+    background:linear-gradient(180deg,#0b1d2a,#060b10);
+    border-radius:18px;
+    padding:14px;
+    text-align:center;
+    border:2px solid rgba(0,255,255,0.35);
+    box-shadow:0 0 15px rgba(0,255,255,0.25);
+    transition:0.3s;
+}
 
-    .card img {
-        width: 100%;
-        height: 150px;
-        object-fit: cover;
-        border-radius: 8px;
-    }
+.card:hover{
+    transform:translateY(-6px) scale(1.03);
+    box-shadow:0 0 25px rgba(0,255,255,0.6);
+}
 
-    .card h3 {
-        margin: 10px 0 5px;
-        font-size: 16px;
-        color: #00ffcc;
-    }
+.card img{
+    width:90px;
+    height:90px;
+    object-fit:cover;
+    border-radius:16px;
+    margin-bottom:10px;
+}
 
-    .card a {
-        display: inline-block;
-        margin-top: 5px;
-        padding: 5px 10px;
-        background: #00ffcc;
-        color: #0d0d0d;
-        text-decoration: none;
-        border-radius: 6px;
-        font-weight: bold;
-    }
+.card h3{
+    font-size:14px;
+    margin:6px 0;
+}
 
-    .card a:hover {
-        background: #00e6b8;
-    }
+.card a{
+    display:inline-block;
+    margin-top:6px;
+    padding:6px 12px;
+    font-size:12px;
+    color:#00f7ff;
+    border:1px solid #00f7ff;
+    border-radius:20px;
+    text-decoration:none;
+}
+
+.card a:hover{
+    background:#00f7ff;
+    color:#000;
+}
 </style>
 </head>
+
 <body>
 
-<h1>Ghosty Hub Toolkit</h1>
+<div class="header">
+    <h1>GHOSTY HUB</h1>
+    <p>Official Toolkit • Version 1.0</p>
+</div>
 
-<div class="tool-row">
+<div class="container">
 
-<!-- CARD 1 -->
+<!-- TOOL CARD TEMPLATE -->
+<!-- COPY & CHANGE TITLE + LINK -->
+
+<script>
+const images = [
+"https://i.supaimg.com/29c34c0f-3ff0-4258-bec1-2d27b4dc0cda.png",
+"https://i.supaimg.com/49fb4b19-35c9-478f-9e23-20458a41905e.png",
+"https://i.supaimg.com/ff8ebfae-db61-4df2-a467-93bec0d3e89e.png",
+"https://i.supaimg.com/66a7167b-654c-4336-937a-f87a9a28093c.png",
+"https://i.supaimg.com/39527028-f1bf-45e4-8b34-406a8e6c5c0f.png",
+"https://i.supaimg.com/ed81c183-2e06-4b27-8953-f4a0d6c6f9cf.png",
+"https://i.supaimg.com/81fa8bb4-3b22-4cea-ad81-79bb1be2ac4f.png",
+"https://i.supaimg.com/32da3b7b-727a-422e-8d48-53ddd8a95cb9.png",
+"https://i.supaimg.com/d7f2e2e7-25c6-44bd-917c-90c35e881558.jpg",
+"https://i.supaimg.com/2f11bb36-dd6f-4a3d-b607-de8e5de17839.png",
+"https://i.supaimg.com/ee512144-c6ed-465d-8221-1787ede53121.png",
+"https://i.supaimg.com/6029b221-943d-4682-913c-1ea202107982.png",
+"https://i.supaimg.com/a767c85a-a6d6-4c77-86aa-fed179b2ca75.png",
+"https://i.supaimg.com/8938b42e-a538-41c4-94be-5849ab405895.png",
+"https://i.supaimg.com/e3cd293a-a2b0-4ca1-92ec-75b2334a9bee.png",
+"https://i.supaimg.com/50d7f2bb-7ec9-4caa-bdc6-63a55cd9e65c.png",
+"https://i.supaimg.com/aee92225-689b-41b2-9c59-b42480576aef.png",
+"https://i.supaimg.com/75237575-dec6-4db3-beab-02eb8604db5e.png",
+"https://i.supaimg.com/c685f6df-3102-4e10-b375-7730cbb83ff2.png",
+"https://i.supaimg.com/dcfb4d0b-c32d-4ce5-8ac8-aef3c327f3ff.png",
+"https://i.supaimg.com/2e9187f2-479b-47de-9dcb-5eb20aca59eb.png",
+"https://i.supaimg.com/de610299-eb21-4c95-9a53-9d38c940b3af.jpg",
+"https://i.supaimg.com/fae67e0c-52f6-4229-9475-b46875a50755.jpg",
+"https://i.supaimg.com/5f47959b-adf0-4de9-931e-7bd4318ff159.jpg",
+"https://i.supaimg.com/5c5addae-8dd5-47b8-b92e-c0c67a2f427f.jpg",
+"https://i.supaimg.com/f7210232-1c7e-46a3-9d22-220f18818567.png"
+];
+
+images.forEach(img=>{
+document.write(`
 <div class="card">
-    <img src="https://i.supaimg.com/29c34c0f-3ff0-4258-bec1-2d27b4dc0cda.png" alt="Tool 1">
-    <h3>Title 1</h3>
-    <a href="#" target="_blank">Open Link</a>
+<img src="${img}">
+<h3>Tool Title</h3>
+<a href="#">Open Tool</a>
 </div>
-
-<!-- CARD 2 -->
-<div class="card">
-    <img src="https://i.supaimg.com/49fb4b19-35c9-478f-9e23-20458a41905e.png" alt="Tool 2">
-    <h3>Title 2</h3>
-    <a href="#" target="_blank">Open Link</a>
-</div>
-
-<!-- CARD 3 -->
-<div class="card">
-    <img src="https://i.supaimg.com/ff8ebfae-db61-4df2-a467-93bec0d3e89e.png" alt="Tool 3">
-    <h3>Title 3</h3>
-    <a href="#" target="_blank">Open Link</a>
-</div>
-
-<!-- CARD 4 -->
-<div class="card">
-    <img src="https://i.supaimg.com/66a7167b-654c-4336-937a-f87a9a28093c.png" alt="Tool 4">
-    <h3>Title 4</h3>
-    <a href="#" target="_blank">Open Link</a>
-</div>
-
-<!-- CARD 5 -->
-<div class="card">
-    <img src="https://i.supaimg.com/39527028-f1bf-45e4-8b34-406a8e6c5c0f.png" alt="Tool 5">
-    <h3>Title 5</h3>
-    <a href="#" target="_blank">Open Link</a>
-</div>
-
-<!-- CARD 6 -->
-<div class="card">
-    <img src="https://i.supaimg.com/ed81c183-2e06-4b27-8953-f4a0d6c6f9cf.png" alt="Tool 6">
-    <h3>Title 6</h3>
-    <a href="#" target="_blank">Open Link</a>
-</div>
-
-<!-- CARD 7 -->
-<div class="card">
-    <img src="https://i.supaimg.com/81fa8bb4-3b22-4cea-ad81-79bb1be2ac4f.png" alt="Tool 7">
-    <h3>Title 7</h3>
-    <a href="#" target="_blank">Open Link</a>
-</div>
-
-<!-- CARD 8 -->
-<div class="card">
-    <img src="https://i.supaimg.com/32da3b7b-727a-422e-8d48-53ddd8a95cb9.png" alt="Tool 8">
-    <h3>Title 8</h3>
-    <a href="#" target="_blank">Open Link</a>
-</div>
-
-<!-- CARD 9 -->
-<div class="card">
-    <img src="https://i.supaimg.com/d7f2e2e7-25c6-44bd-917c-90c35e881558.jpg" alt="Tool 9">
-    <h3>Title 9</h3>
-    <a href="#" target="_blank">Open Link</a>
-</div>
-
-<!-- CARD 10 -->
-<div class="card">
-    <img src="https://i.supaimg.com/2f11bb36-dd6f-4a3d-b607-de8e5de17839.png" alt="Tool 10">
-    <h3>Title 10</h3>
-    <a href="#" target="_blank">Open Link</a>
-</div>
-
-<!-- CARD 11 -->
-<div class="card">
-    <img src="https://i.supaimg.com/ee512144-c6ed-465d-8221-1787ede53121.png" alt="Tool 11">
-    <h3>Title 11</h3>
-    <a href="#" target="_blank">Open Link</a>
-</div>
-
-<!-- CARD 12 -->
-<div class="card">
-    <img src="https://i.supaimg.com/6029b221-943d-4682-913c-1ea202107982.png" alt="Tool 12">
-    <h3>Title 12</h3>
-    <a href="#" target="_blank">Open Link</a>
-</div>
-
-<!-- CARD 13 -->
-<div class="card">
-    <img src="https://i.supaimg.com/a767c85a-a6d6-4c77-86aa-fed179b2ca75.png" alt="Tool 13">
-    <h3>Title 13</h3>
-    <a href="#" target="_blank">Open Link</a>
-</div>
-
-<!-- CARD 14 -->
-<div class="card">
-    <img src="https://i.supaimg.com/8938b42e-a538-41c4-94be-5849ab405895.png" alt="Tool 14">
-    <h3>Title 14</h3>
-    <a href="#" target="_blank">Open Link</a>
-</div>
-
-<!-- CARD 15 -->
-<div class="card">
-    <img src="https://i.supaimg.com/e3cd293a-a2b0-4ca1-92ec-75b2334a9bee.png" alt="Tool 15">
-    <h3>Title 15</h3>
-    <a href="#" target="_blank">Open Link</a>
-</div>
-
-<!-- CARD 16 -->
-<div class="card">
-    <img src="https://i.supaimg.com/50d7f2bb-7ec9-4caa-bdc6-63a55cd9e65c.png" alt="Tool 16">
-    <h3>Title 16</h3>
-    <a href="#" target="_blank">Open Link</a>
-</div>
-
-<!-- CARD 17 -->
-<div class="card">
-    <img src="https://i.supaimg.com/aee92225-689b-41b2-9c59-b42480576aef.png" alt="Tool 17">
-    <h3>Title 17</h3>
-    <a href="#" target="_blank">Open Link</a>
-</div>
-
-<!-- CARD 18 -->
-<div class="card">
-    <img src="https://i.supaimg.com/75237575-dec6-4db3-beab-02eb8604db5e.png" alt="Tool 18">
-    <h3>Title 18</h3>
-    <a href="#" target="_blank">Open Link</a>
-</div>
-
-<!-- CARD 19 -->
-<div class="card">
-    <img src="https://i.supaimg.com/c685f6df-3102-4e10-b375-7730cbb83ff2.png" alt="Tool 19">
-    <h3>Title 19</h3>
-    <a href="#" target="_blank">Open Link</a>
-</div>
-
-<!-- CARD 20 -->
-<div class="card">
-    <img src="https://i.supaimg.com/dcfb4d0b-c32d-4ce5-8ac8-aef3c327f3ff.png" alt="Tool 20">
-    <h3>Title 20</h3>
-    <a href="#" target="_blank">Open Link</a>
-</div>
-
-<!-- CARD 21 -->
-<div class="card">
-    <img src="https://i.supaimg.com/2e9187f2-479b-47de-9dcb-5eb20aca59eb.png" alt="Tool 21">
-    <h3>Title 21</h3>
-    <a href="#" target="_blank">Open Link</a>
-</div>
-
-<!-- CARD 22 -->
-<div class="card">
-    <img src="https://i.supaimg.com/de610299-eb21-4c95-9a53-9d38c940b3af.jpg" alt="Tool 22">
-    <h3>Title 22</h3>
-    <a href="#" target="_blank">Open Link</a>
-</div>
-
-<!-- CARD 23 -->
-<div class="card">
-    <img src="https://i.supaimg.com/fae67e0c-52f6-4229-9475-b46875a50755.jpg" alt="Tool 23">
-    <h3>Title 23</h3>
-    <a href="#" target="_blank">Open Link</a>
-</div>
-
-<!-- CARD 24 -->
-<div class="card">
-    <img src="https://i.supaimg.com/5f47959b-adf0-4de9-931e-7bd4318ff159.jpg" alt="Tool 24">
-    <h3>Title 24</h3>
-    <a href="#" target="_blank">Open Link</a>
-</div>
-
-<!-- CARD 25 -->
-<div class="card">
-    <img src="https://i.supaimg.com/5c5addae-8dd5-47b8-b92e-c0c67a2f427f.jpg" alt="Tool 25">
-    <h3>Title 25</h3>
-    <a href="#" target="_blank">Open Link</a>
-</div>
-
-<!-- CARD 26 -->
-<div class="card">
-    <img src="https://i.supaimg.com/f7210232-1c7e-46a3-9d22-220f18818567.png" alt="Tool 26">
-    <h3>Title 26</h3>
-    <a href="#" target="_blank">Open Link</a>
-</div>
+`);
+});
+</script>
 
 </div>
+
 </body>
 </html>
