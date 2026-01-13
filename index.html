@@ -8,43 +8,63 @@
 <style>
     body {
         margin: 0;
-        background-color: #0d0d0d;
         font-family: 'Share Tech Mono', monospace;
+        background-color: #0d0d0d;
         color: #00ffcc;
     }
+
     h1 {
         text-align: center;
         padding: 20px;
         color: #00ffcc;
     }
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr); /* 4 tools per row */
-        gap: 20px;
+
+    /* Horizontal scroll container */
+    .tool-row {
+        display: flex;
+        overflow-x: auto;
         padding: 20px;
+        gap: 20px;
     }
+
+    /* Hide scrollbar for all browsers */
+    .tool-row::-webkit-scrollbar {
+        display: none;
+    }
+    .tool-row {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+
+    /* Tool card */
     .card {
+        min-width: 200px;
         background-color: #1a1a1a;
         border: 2px solid #00ffcc;
         border-radius: 12px;
         text-align: center;
         padding: 10px;
+        flex-shrink: 0;
         transition: transform 0.2s;
     }
+
     .card:hover {
         transform: scale(1.05);
     }
+
     .card img {
         width: 100%;
         height: 150px;
         object-fit: cover;
         border-radius: 8px;
     }
+
     .card h3 {
         margin: 10px 0 5px;
         font-size: 16px;
         color: #00ffcc;
     }
+
     .card a {
         display: inline-block;
         margin-top: 5px;
@@ -55,24 +75,9 @@
         border-radius: 6px;
         font-weight: bold;
     }
+
     .card a:hover {
         background: #00e6b8;
-    }
-    /* Responsive for smaller screens */
-    @media (max-width: 1024px) {
-        .grid {
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
-    @media (max-width: 768px) {
-        .grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-    @media (max-width: 480px) {
-        .grid {
-            grid-template-columns: 1fr;
-        }
     }
 </style>
 </head>
@@ -80,7 +85,7 @@
 
 <h1>Ghosty Hub Toolkit</h1>
 
-<div class="grid">
+<div class="tool-row">
 
 <!-- CARD 1 -->
 <div class="card">
