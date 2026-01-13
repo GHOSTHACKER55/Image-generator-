@@ -3,82 +3,118 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ghosty Hub – Toolkit</title>
+<title>Ghosty Hub</title>
 
 <style>
+*{box-sizing:border-box}
 body{
     margin:0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: radial-gradient(circle at top, #0f2027, #000);
+    font-family: "Segoe UI", Arial;
+    background:linear-gradient(180deg,#0b1622,#02060a);
     color:#fff;
 }
 
+/* HEADER */
 .header{
+    padding:30px 16px 10px;
     text-align:center;
-    padding:30px 15px;
 }
-
 .header h1{
-    font-size:36px;
-    letter-spacing:2px;
-    color:#00f7ff;
-    text-shadow:0 0 15px #00f7ff;
+    font-size:40px;
+    margin:0;
+    font-weight:800;
 }
-
+.header h1 span{
+    color:#00f0ff;
+    text-shadow:0 0 18px #00f0ff;
+}
 .header p{
-    color:#aaa;
-    margin-top:5px;
+    margin-top:8px;
+    color:#9aa7b2;
 }
 
-.container{
-    padding:20px;
+/* SEARCH */
+.search-box{
+    margin:18px auto;
+    max-width:420px;
+    padding:0 16px;
+}
+.search-box input{
+    width:100%;
+    padding:14px 16px;
+    border-radius:14px;
+    border:none;
+    outline:none;
+    background:#050c14;
+    color:#fff;
+    font-size:15px;
+    box-shadow:inset 0 0 0 1px rgba(0,255,255,.25);
+}
+
+/* TABS */
+.tabs{
+    display:flex;
+    gap:10px;
+    padding:10px 16px 20px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+.tab{
+    padding:10px 16px;
+    border-radius:22px;
+    font-size:14px;
+    color:#cfefff;
+    background:#050c14;
+    border:1px solid rgba(0,255,255,.35);
+}
+.tab.active{
+    background:#00f0ff;
+    color:#001018;
+    font-weight:600;
+}
+
+/* GRID */
+.grid{
+    padding:10px 16px 40px;
     display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(140px,1fr));
-    gap:18px;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
 }
 
+/* CARD */
 .card{
-    background:linear-gradient(180deg,#0b1d2a,#060b10);
-    border-radius:18px;
+    background:linear-gradient(180deg,#071a28,#03080e);
+    border-radius:20px;
     padding:14px;
     text-align:center;
-    border:2px solid rgba(0,255,255,0.35);
-    box-shadow:0 0 15px rgba(0,255,255,0.25);
-    transition:0.3s;
+    border:2px solid rgba(0,255,255,.35);
+    box-shadow:0 0 18px rgba(0,255,255,.18);
 }
-
-.card:hover{
-    transform:translateY(-6px) scale(1.03);
-    box-shadow:0 0 25px rgba(0,255,255,0.6);
-}
-
 .card img{
-    width:90px;
-    height:90px;
+    width:88px;
+    height:88px;
+    border-radius:18px;
     object-fit:cover;
-    border-radius:16px;
     margin-bottom:10px;
 }
-
 .card h3{
     font-size:14px;
-    margin:6px 0;
+    margin:6px 0 8px;
+    font-weight:500;
 }
-
 .card a{
     display:inline-block;
-    margin-top:6px;
-    padding:6px 12px;
+    padding:7px 14px;
     font-size:12px;
-    color:#00f7ff;
-    border:1px solid #00f7ff;
-    border-radius:20px;
+    border-radius:18px;
     text-decoration:none;
+    color:#00f0ff;
+    border:1px solid #00f0ff;
 }
 
-.card a:hover{
-    background:#00f7ff;
-    color:#000;
+/* DESKTOP */
+@media(min-width:700px){
+    .grid{grid-template-columns:repeat(4,1fr)}
 }
 </style>
 </head>
@@ -86,17 +122,25 @@ body{
 <body>
 
 <div class="header">
-    <h1>GHOSTY HUB</h1>
-    <p>Official Toolkit • Version 1.0</p>
+    <h1>GHOSTY <span>HUB</span></h1>
+    <p>Welcome To Our Official Toolkit</p>
 </div>
 
-<div class="container">
+<div class="search-box">
+    <input type="text" placeholder="Search Tools">
+</div>
 
-<!-- TOOL CARD TEMPLATE -->
-<!-- COPY & CHANGE TITLE + LINK -->
+<div class="tabs">
+    <div class="tab active">🌐 All</div>
+    <div class="tab">🔗 Social</div>
+    <div class="tab">🧑‍💻 Tools For Developers</div>
+</div>
 
+<div class="grid">
+
+<!-- TOOL CARDS (AUTO FROM YOUR IMAGES) -->
 <script>
-const images = [
+const imgs=[
 "https://i.supaimg.com/29c34c0f-3ff0-4258-bec1-2d27b4dc0cda.png",
 "https://i.supaimg.com/49fb4b19-35c9-478f-9e23-20458a41905e.png",
 "https://i.supaimg.com/ff8ebfae-db61-4df2-a467-93bec0d3e89e.png",
@@ -104,33 +148,14 @@ const images = [
 "https://i.supaimg.com/39527028-f1bf-45e4-8b34-406a8e6c5c0f.png",
 "https://i.supaimg.com/ed81c183-2e06-4b27-8953-f4a0d6c6f9cf.png",
 "https://i.supaimg.com/81fa8bb4-3b22-4cea-ad81-79bb1be2ac4f.png",
-"https://i.supaimg.com/32da3b7b-727a-422e-8d48-53ddd8a95cb9.png",
-"https://i.supaimg.com/d7f2e2e7-25c6-44bd-917c-90c35e881558.jpg",
-"https://i.supaimg.com/2f11bb36-dd6f-4a3d-b607-de8e5de17839.png",
-"https://i.supaimg.com/ee512144-c6ed-465d-8221-1787ede53121.png",
-"https://i.supaimg.com/6029b221-943d-4682-913c-1ea202107982.png",
-"https://i.supaimg.com/a767c85a-a6d6-4c77-86aa-fed179b2ca75.png",
-"https://i.supaimg.com/8938b42e-a538-41c4-94be-5849ab405895.png",
-"https://i.supaimg.com/e3cd293a-a2b0-4ca1-92ec-75b2334a9bee.png",
-"https://i.supaimg.com/50d7f2bb-7ec9-4caa-bdc6-63a55cd9e65c.png",
-"https://i.supaimg.com/aee92225-689b-41b2-9c59-b42480576aef.png",
-"https://i.supaimg.com/75237575-dec6-4db3-beab-02eb8604db5e.png",
-"https://i.supaimg.com/c685f6df-3102-4e10-b375-7730cbb83ff2.png",
-"https://i.supaimg.com/dcfb4d0b-c32d-4ce5-8ac8-aef3c327f3ff.png",
-"https://i.supaimg.com/2e9187f2-479b-47de-9dcb-5eb20aca59eb.png",
-"https://i.supaimg.com/de610299-eb21-4c95-9a53-9d38c940b3af.jpg",
-"https://i.supaimg.com/fae67e0c-52f6-4229-9475-b46875a50755.jpg",
-"https://i.supaimg.com/5f47959b-adf0-4de9-931e-7bd4318ff159.jpg",
-"https://i.supaimg.com/5c5addae-8dd5-47b8-b92e-c0c67a2f427f.jpg",
-"https://i.supaimg.com/f7210232-1c7e-46a3-9d22-220f18818567.png"
+"https://i.supaimg.com/32da3b7b-727a-422e-8d48-53ddd8a95cb9.png"
 ];
-
-images.forEach(img=>{
+imgs.forEach(i=>{
 document.write(`
 <div class="card">
-<img src="${img}">
+<img src="${i}">
 <h3>Tool Title</h3>
-<a href="#">Open Tool</a>
+<a href="#">Open</a>
 </div>
 `);
 });
