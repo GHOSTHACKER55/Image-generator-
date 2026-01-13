@@ -8,56 +8,27 @@
 <style>
     body {
         margin: 0;
-        font-family: 'Share Tech Mono', monospace;
         background-color: #0d0d0d;
+        font-family: 'Share Tech Mono', monospace;
         color: #00ffcc;
-        scroll-behavior: smooth;
-    }
-    /* Page 1: Button Section */
-    #home {
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-    .ghosty-button {
-        background-color: #1a1a1a;
-        color: #00ffcc;
-        font-size: 48px;
-        padding: 50px 80px;
-        border: 3px solid #00ffcc;
-        border-radius: 25px;
-        cursor: pointer;
-        text-decoration: none;
-        transition: transform 0.2s, background-color 0.2s;
-    }
-    .ghosty-button:hover {
-        background-color: #00ffcc;
-        color: #0d0d0d;
-        transform: scale(1.1);
-    }
-
-    /* Page 2: Toolkit Section */
-    #tools {
-        padding: 40px 20px;
     }
     h1 {
         text-align: center;
+        padding: 20px;
         color: #00ffcc;
-        margin-bottom: 40px;
     }
     .grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: repeat(4, 1fr); /* 4 tools per row */
         gap: 20px;
+        padding: 20px;
     }
     .card {
-        background: #1a1a1a;
+        background-color: #1a1a1a;
         border: 2px solid #00ffcc;
         border-radius: 12px;
-        padding: 10px;
         text-align: center;
+        padding: 10px;
         transition: transform 0.2s;
     }
     .card:hover {
@@ -79,7 +50,7 @@
         margin-top: 5px;
         padding: 5px 10px;
         background: #00ffcc;
-        color: #000;
+        color: #0d0d0d;
         text-decoration: none;
         border-radius: 6px;
         font-weight: bold;
@@ -87,204 +58,212 @@
     .card a:hover {
         background: #00e6b8;
     }
+    /* Responsive for smaller screens */
+    @media (max-width: 1024px) {
+        .grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    @media (max-width: 768px) {
+        .grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @media (max-width: 480px) {
+        .grid {
+            grid-template-columns: 1fr;
+        }
+    }
 </style>
 </head>
 <body>
 
-<!-- PAGE 1 -->
-<section id="home">
-    <a href="#tools" class="ghosty-button">GHOSTY HUB</a>
-</section>
+<h1>Ghosty Hub Toolkit</h1>
 
-<!-- PAGE 2 -->
-<section id="tools">
-    <h1>Ghosty Hub Toolkit</h1>
-    <div class="grid">
+<div class="grid">
 
-        <!-- CARD 1 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/29c34c0f-3ff0-4258-bec1-2d27b4dc0cda.png" alt="Tool 1">
-            <h3>Title 1</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 1 -->
+<div class="card">
+    <img src="https://i.supaimg.com/29c34c0f-3ff0-4258-bec1-2d27b4dc0cda.png" alt="Tool 1">
+    <h3>Title 1</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-        <!-- CARD 2 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/49fb4b19-35c9-478f-9e23-20458a41905e.png" alt="Tool 2">
-            <h3>Title 2</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 2 -->
+<div class="card">
+    <img src="https://i.supaimg.com/49fb4b19-35c9-478f-9e23-20458a41905e.png" alt="Tool 2">
+    <h3>Title 2</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-        <!-- CARD 3 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/ff8ebfae-db61-4df2-a467-93bec0d3e89e.png" alt="Tool 3">
-            <h3>Title 3</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 3 -->
+<div class="card">
+    <img src="https://i.supaimg.com/ff8ebfae-db61-4df2-a467-93bec0d3e89e.png" alt="Tool 3">
+    <h3>Title 3</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-        <!-- CARD 4 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/66a7167b-654c-4336-937a-f87a9a28093c.png" alt="Tool 4">
-            <h3>Title 4</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 4 -->
+<div class="card">
+    <img src="https://i.supaimg.com/66a7167b-654c-4336-937a-f87a9a28093c.png" alt="Tool 4">
+    <h3>Title 4</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-        <!-- CARD 5 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/39527028-f1bf-45e4-8b34-406a8e6c5c0f.png" alt="Tool 5">
-            <h3>Title 5</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 5 -->
+<div class="card">
+    <img src="https://i.supaimg.com/39527028-f1bf-45e4-8b34-406a8e6c5c0f.png" alt="Tool 5">
+    <h3>Title 5</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-        <!-- CARD 6 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/ed81c183-2e06-4b27-8953-f4a0d6c6f9cf.png" alt="Tool 6">
-            <h3>Title 6</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 6 -->
+<div class="card">
+    <img src="https://i.supaimg.com/ed81c183-2e06-4b27-8953-f4a0d6c6f9cf.png" alt="Tool 6">
+    <h3>Title 6</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-        <!-- CARD 7 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/81fa8bb4-3b22-4cea-ad81-79bb1be2ac4f.png" alt="Tool 7">
-            <h3>Title 7</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 7 -->
+<div class="card">
+    <img src="https://i.supaimg.com/81fa8bb4-3b22-4cea-ad81-79bb1be2ac4f.png" alt="Tool 7">
+    <h3>Title 7</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-        <!-- CARD 8 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/32da3b7b-727a-422e-8d48-53ddd8a95cb9.png" alt="Tool 8">
-            <h3>Title 8</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 8 -->
+<div class="card">
+    <img src="https://i.supaimg.com/32da3b7b-727a-422e-8d48-53ddd8a95cb9.png" alt="Tool 8">
+    <h3>Title 8</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-        <!-- CARD 9 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/d7f2e2e7-25c6-44bd-917c-90c35e881558.jpg" alt="Tool 9">
-            <h3>Title 9</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 9 -->
+<div class="card">
+    <img src="https://i.supaimg.com/d7f2e2e7-25c6-44bd-917c-90c35e881558.jpg" alt="Tool 9">
+    <h3>Title 9</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-        <!-- CARD 10 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/2f11bb36-dd6f-4a3d-b607-de8e5de17839.png" alt="Tool 10">
-            <h3>Title 10</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 10 -->
+<div class="card">
+    <img src="https://i.supaimg.com/2f11bb36-dd6f-4a3d-b607-de8e5de17839.png" alt="Tool 10">
+    <h3>Title 10</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-        <!-- CARD 11 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/ee512144-c6ed-465d-8221-1787ede53121.png" alt="Tool 11">
-            <h3>Title 11</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 11 -->
+<div class="card">
+    <img src="https://i.supaimg.com/ee512144-c6ed-465d-8221-1787ede53121.png" alt="Tool 11">
+    <h3>Title 11</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-        <!-- CARD 12 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/6029b221-943d-4682-913c-1ea202107982.png" alt="Tool 12">
-            <h3>Title 12</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 12 -->
+<div class="card">
+    <img src="https://i.supaimg.com/6029b221-943d-4682-913c-1ea202107982.png" alt="Tool 12">
+    <h3>Title 12</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-        <!-- CARD 13 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/a767c85a-a6d6-4c77-86aa-fed179b2ca75.png" alt="Tool 13">
-            <h3>Title 13</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 13 -->
+<div class="card">
+    <img src="https://i.supaimg.com/a767c85a-a6d6-4c77-86aa-fed179b2ca75.png" alt="Tool 13">
+    <h3>Title 13</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-        <!-- CARD 14 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/8938b42e-a538-41c4-94be-5849ab405895.png" alt="Tool 14">
-            <h3>Title 14</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 14 -->
+<div class="card">
+    <img src="https://i.supaimg.com/8938b42e-a538-41c4-94be-5849ab405895.png" alt="Tool 14">
+    <h3>Title 14</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-        <!-- CARD 15 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/e3cd293a-a2b0-4ca1-92ec-75b2334a9bee.png" alt="Tool 15">
-            <h3>Title 15</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 15 -->
+<div class="card">
+    <img src="https://i.supaimg.com/e3cd293a-a2b0-4ca1-92ec-75b2334a9bee.png" alt="Tool 15">
+    <h3>Title 15</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-        <!-- CARD 16 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/50d7f2bb-7ec9-4caa-bdc6-63a55cd9e65c.png" alt="Tool 16">
-            <h3>Title 16</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 16 -->
+<div class="card">
+    <img src="https://i.supaimg.com/50d7f2bb-7ec9-4caa-bdc6-63a55cd9e65c.png" alt="Tool 16">
+    <h3>Title 16</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-        <!-- CARD 17 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/aee92225-689b-41b2-9c59-b42480576aef.png" alt="Tool 17">
-            <h3>Title 17</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 17 -->
+<div class="card">
+    <img src="https://i.supaimg.com/aee92225-689b-41b2-9c59-b42480576aef.png" alt="Tool 17">
+    <h3>Title 17</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-        <!-- CARD 18 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/75237575-dec6-4db3-beab-02eb8604db5e.png" alt="Tool 18">
-            <h3>Title 18</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 18 -->
+<div class="card">
+    <img src="https://i.supaimg.com/75237575-dec6-4db3-beab-02eb8604db5e.png" alt="Tool 18">
+    <h3>Title 18</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-        <!-- CARD 19 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/c685f6df-3102-4e10-b375-7730cbb83ff2.png" alt="Tool 19">
-            <h3>Title 19</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 19 -->
+<div class="card">
+    <img src="https://i.supaimg.com/c685f6df-3102-4e10-b375-7730cbb83ff2.png" alt="Tool 19">
+    <h3>Title 19</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-        <!-- CARD 20 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/dcfb4d0b-c32d-4ce5-8ac8-aef3c327f3ff.png" alt="Tool 20">
-            <h3>Title 20</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 20 -->
+<div class="card">
+    <img src="https://i.supaimg.com/dcfb4d0b-c32d-4ce5-8ac8-aef3c327f3ff.png" alt="Tool 20">
+    <h3>Title 20</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-        <!-- CARD 21 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/2e9187f2-479b-47de-9dcb-5eb20aca59eb.png" alt="Tool 21">
-            <h3>Title 21</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 21 -->
+<div class="card">
+    <img src="https://i.supaimg.com/2e9187f2-479b-47de-9dcb-5eb20aca59eb.png" alt="Tool 21">
+    <h3>Title 21</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-        <!-- CARD 22 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/de610299-eb21-4c95-9a53-9d38c940b3af.jpg" alt="Tool 22">
-            <h3>Title 22</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 22 -->
+<div class="card">
+    <img src="https://i.supaimg.com/de610299-eb21-4c95-9a53-9d38c940b3af.jpg" alt="Tool 22">
+    <h3>Title 22</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-        <!-- CARD 23 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/fae67e0c-52f6-4229-9475-b46875a50755.jpg" alt="Tool 23">
-            <h3>Title 23</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 23 -->
+<div class="card">
+    <img src="https://i.supaimg.com/fae67e0c-52f6-4229-9475-b46875a50755.jpg" alt="Tool 23">
+    <h3>Title 23</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-        <!-- CARD 24 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/5f47959b-adf0-4de9-931e-7bd4318ff159.jpg" alt="Tool 24">
-            <h3>Title 24</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 24 -->
+<div class="card">
+    <img src="https://i.supaimg.com/5f47959b-adf0-4de9-931e-7bd4318ff159.jpg" alt="Tool 24">
+    <h3>Title 24</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-        <!-- CARD 25 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/5c5addae-8dd5-47b8-b92e-c0c67a2f427f.jpg" alt="Tool 25">
-            <h3>Title 25</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 25 -->
+<div class="card">
+    <img src="https://i.supaimg.com/5c5addae-8dd5-47b8-b92e-c0c67a2f427f.jpg" alt="Tool 25">
+    <h3>Title 25</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-        <!-- CARD 26 -->
-        <div class="card">
-            <img src="https://i.supaimg.com/f7210232-1c7e-46a3-9d22-220f18818567.png" alt="Tool 26">
-            <h3>Title 26</h3>
-            <a href="#" target="_blank">Open Link</a>
-        </div>
+<!-- CARD 26 -->
+<div class="card">
+    <img src="https://i.supaimg.com/f7210232-1c7e-46a3-9d22-220f18818567.png" alt="Tool 26">
+    <h3>Title 26</h3>
+    <a href="#" target="_blank">Open Link</a>
+</div>
 
-    </div>
-</section>
-
+</div>
 </body>
 </html>
